@@ -19,6 +19,6 @@ from movieapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
-    path('testimonials', views.testimonial),
+    path('', views.index, name='index'), #name define unique file for not reapead
+    path('testimonials', views.testimonial, name='testimonials'),
 ]
