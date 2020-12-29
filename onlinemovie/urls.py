@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'), #name define unique file for not reapead
     path('testimonials', views.testimonial, name='testimonials'),
+    path('movie/<int:movie_id>', views.movie, name='movie'),
 ]

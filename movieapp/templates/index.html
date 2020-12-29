@@ -7,5 +7,26 @@
 
 <!-- Content -->
 {% block content %}
-  <h3 class="mt-5 text-center">OnLine Movie App</title>
+  <h3 class="mt-5 text-center">OnLine Movie App</h3>
+  
+  <div class="row mt-5">
+    {% for m in movie %}
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm" style="width: 18rem;">
+          <img src="https://img.youtube.com/vi/{{m.trailer}}/maxresdefault.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{ m.name }}</h5>
+            {% if m.star > 3 %}
+              <span class="badge badge-pill badge-danger">Hot</span>
+            {% else %}
+              <span class="badge badge-pill badge-warning">Just OK</span>
+            {% endif %}
+
+            <p class="card-text">{{ m.description }}</p>
+            <a href="{% url 'movie' m.id %}" class="btn btn-outline-primary">Trailer</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}
